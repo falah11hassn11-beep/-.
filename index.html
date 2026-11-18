@@ -193,25 +193,68 @@ margin:0;
 }
 
 
+
 .whatsapp-float{
 position:fixed;
-right:20px;
+left:20px;
 bottom:22px;
-width:58px;
-height:58px;
-background:#25D366;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:8px;
+z-index:99999;
+text-decoration:none;
 color:#fff;
+}
+.whatsapp-icon{
+position:relative;
+width:72px;
+height:72px;
+background:#25D366;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-box-shadow:0 5px 20px rgba(37,211,102,.4);
-z-index:99999;
-text-decoration:none;
-transition:transform .25s ease;
+box-shadow:0 5px 24px rgba(37,211,102,.55);
+animation:whatsapp-bob 2.2s ease-in-out infinite;
 }
-.whatsapp-float:hover{transform:scale(1.1);}
-.whatsapp-float svg{width:34px;height:34px;fill:#fff;}
+.whatsapp-icon::before{
+content:"";
+position:absolute;
+inset:-7px;
+border:2px solid rgba(37,211,102,.65);
+border-radius:50%;
+animation:whatsapp-pulse 2s ease-out infinite;
+}
+.whatsapp-icon svg{
+width:43px;
+height:43px;
+fill:#fff;
+}
+.whatsapp-label{
+font-size:14px;
+font-weight:bold;
+color:#fff;
+background:rgba(17,24,39,.95);
+padding:7px 12px;
+border-radius:20px;
+white-space:nowrap;
+box-shadow:0 3px 12px rgba(0,0,0,.3);
+}
+.whatsapp-float:hover .whatsapp-icon{
+transform:scale(1.1);
+}
+@keyframes whatsapp-pulse{
+0%{transform:scale(.9);opacity:.9;}
+100%{transform:scale(1.4);opacity:0;}
+}
+@keyframes whatsapp-bob{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-5px);}
+}
+@media(prefers-reduced-motion:reduce){
+.whatsapp-icon,.whatsapp-icon::before{animation:none;}
+}
 
 </style>
 </head>
@@ -438,10 +481,13 @@ button.textContent='تعذر النسخ';
 </script>
 
 
-<a class="whatsapp-float" href="https://wa.me/9647803734579?text=مرحبا%20فلاح%20ستور،%20أريد%20الاستفسار%20عن%20البرامج" target="_blank" rel="noopener noreferrer" aria-label="تواصل معنا عبر واتساب">
+<a class="whatsapp-float" href="https://wa.me/9647803734579?text=مرحبا%20فلاح%20ستور،%20أريد%20الاستفسار%20عن%20البرامج" target="_blank" rel="noopener noreferrer" aria-label="تواصل مع الدعم عبر واتساب">
+<span class="whatsapp-icon">
 <svg viewBox="0 0 32 32" aria-hidden="true">
 <path d="M16 .5A15.4 15.4 0 0 0 2.7 23.7L.5 31.5l8-2.1A15.5 15.5 0 1 0 16 .5zm0 28a12.5 12.5 0 0 1-6.4-1.8l-.5-.3-4.7 1.2 1.3-4.6-.3-.5A12.5 12.5 0 1 1 16 28.5zm6.9-9.4c-.4-.2-2.2-1.1-2.5-1.2-.4-.1-.6-.2-.9.2-.2.4-1 1.2-1.2 1.5-.2.2-.5.3-.9.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.6.1-.2 0-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.8c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.1s1.3 3.5 1.5 3.8c.2.3 2.6 4 6.2 5.6 3.7 1.6 3.7 1.1 4.4 1 .7-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z"/>
 </svg>
+</span>
+<span class="whatsapp-label">تواصل مع الدعم</span>
 </a>
 
 </body>
