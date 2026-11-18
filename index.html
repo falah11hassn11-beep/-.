@@ -256,6 +256,19 @@ transform:scale(1.1);
 .whatsapp-icon,.whatsapp-icon::before{animation:none;}
 }
 
+
+/* FALAH STORE PREMIUM HEADER ANIMATIONS */
+.logo{animation:falahGlow 3s ease-in-out infinite alternate;}
+header h1{animation:falahRise .9s ease both;}
+header p{animation:falahRise 1.3s ease both;}
+header:after{content:"";position:absolute;bottom:0;left:-35%;width:35%;height:2px;background:linear-gradient(90deg,transparent,#078cff,#65d5ff,transparent);animation:falahLine 6s ease-in-out infinite;}
+header:before{animation:falahAura 7s ease-in-out infinite alternate;}
+@keyframes falahGlow{from{text-shadow:0 0 10px #078cff55;}to{text-shadow:0 0 18px #078cff,0 0 38px #078cff99;}}
+@keyframes falahRise{from{opacity:0;transform:translateY(15px);}to{opacity:1;transform:translateY(0);}}
+@keyframes falahLine{0%{left:-35%;}100%{left:100%;}}
+@keyframes falahAura{from{box-shadow:0 0 45px #078cff20;}to{box-shadow:0 0 100px #078cff65;}}
+@media(prefers-reduced-motion:reduce){.logo,header h1,header p,header:before,header:after{animation:none;}}
+
 </style>
 </head>
 <body>
